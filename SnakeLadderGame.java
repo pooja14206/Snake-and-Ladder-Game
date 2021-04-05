@@ -4,6 +4,8 @@ public class SnakeLadderGame {
 
 		System.out.println("Wellcome to snake ladder game: ");
 
+		int startPosition = 0;
+
 	}
 
 
