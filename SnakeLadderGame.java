@@ -43,7 +43,7 @@ public class SnakeLadderGame {
                                 }
 
                         }
-                        if(flagForPlayer1 == 0 && randomValuePlayer1 == 1)
+                        if(flagForPlayer1 == 0)
                         {
                                 flagForPlayer1 = 1;
                                 positionPlayer1 = 1;
@@ -82,7 +82,7 @@ public class SnakeLadderGame {
                                         System.out.println("Player2 Rolled, Die Value : "+randomValuePlayer2 +"\n Player2 get snake so go behind with -"+randomValuePlayer2+"\n Current Player1 Position : "+positionPlayer2+"\n");
                                 }
                         }
-                        if(flagForPlayer2 == 0 && randomValuePlayer2 == 1) {
+                        if(flagForPlayer2 == 0) {
                                 flagForPlayer2 = 1;
                                 positionPlayer2 = 1;
                                 System.out.println("\nPlayer2 is entered into Game,and Player2 current position : "+positionPlayer2+"\n");
