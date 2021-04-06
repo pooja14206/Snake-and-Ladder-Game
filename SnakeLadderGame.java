@@ -8,6 +8,7 @@ public class SnakeLadderGame {
 		int TempPosition;
 		int minimum = 1;
 		int maximum = 6;
+		int countDice = 0;
 
 		while(position < 100)
 		{
@@ -33,8 +34,10 @@ public class SnakeLadderGame {
 				if(position < 0 )
 					position = 0;
 			}
-		System.out.println("position" + position);
+			countDice++;
+			System.out.println("position" + position);
 		}
+		System.out.println("Number of times dice was played to win the game " + countDice);
 	}
 
 
