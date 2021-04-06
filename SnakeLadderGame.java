@@ -1,44 +1,105 @@
 public class SnakeLadderGame {
+        public static void main(String[] args) {
+                int positionPlayer1 = 0;
+                int positionPlayer2 = 0;
 
-	public static void main(String[] args) {
+                int flagForPlayer1 = 0;
+                int flagForPlayer2 = 0;
+                int storePositionPlayer1;
+                int storePositionPlayer2;
+                int countDice=0;
 
-		System.out.println("Wellcome to snake ladder game: ");
+                System.out.println("Snake and Laddar Simulation Game: ");
+                while(true) {
+                        countDice++;
+//                      player 1
+                        int randomValuePlayer1 = (int)Math.floor(Math.random() * 10) % 6 + 1;
+                        if(flagForPlayer1 == 1)
+                        {
+                                int randomOption = (int)Math.floor(Math.random() * 10) % 2 + 1;
 
-		int position = 0;
-		int TempPosition;
-		int minimum = 1;
-		int maximum = 6;
-		int countDice = 0;
+                                if(randomOption == 1 )
+                                {
+                                        storePositionPlayer1 = positionPlayer1;
+                                        positionPlayer1 += randomValuePlayer1;
+                                        if(positionPlayer1 > 100)
+                                        {
+                                                positionPlayer1 = storePositionPlayer1;
+                                        }
+                                        System.out.println("\n Player1 Rolled, Dice Value : "+ randomValuePlayer1 +"\n get Laddar so move ahead with +"+ randomValuePlayer1 +"\n Current Player1 Position : "+ positionPlayer1 +"\n");
 
-		while(position < 100)
-		{
-			int randomValue = (int) Math.floor(Math.random() * (maximum - minimum + 1) + minimum);  //Math.random()*(max-min+1)+min
-//			System.out.println("randomvalue" + randomValue);
+                                }
 
-			int randomOption = (int) (Math.random() * 10) % 3;
-//			System.out.println("randomoption" + randomOption);
+                                else if(randomOption == 2)
+                                {
+                                        positionPlayer1 -= randomValuePlayer1;
+                                        if(positionPlayer1 <= 0)
+                                        {
+                                                positionPlayer1 = 0;
+                                                flagForPlayer1 = 0;
+                                                System.out.println("\n Player1 is KnockOut.Need Dice value 1 to get inside Game\n");
+                                        }
+                                        System.out.println("Player1 Rolled, Dice Value : "+ randomValuePlayer1 +"\n Player1 get snake so go behind with -"+randomValuePlayer1+"\n Current Player1 Position : "+positionPlayer1+"\n");
+                                }
 
-			if(randomOption == 0 && position == 0)
-				position = 0;
+                        }
+                        if(flagForPlayer1 == 0 && randomValuePlayer1 == 1)
+                        {
+                                flagForPlayer1 = 1;
+                                positionPlayer1 = 1;
+                                System.out.println("Player1 is entered into Game, and player1 Current position : "+positionPlayer1+"\n");
+                        }
+                        if(positionPlayer1 >= 100)
+                        {
+                                System.out.println("Player1 wins with "+countDice+ " Die Rolls");
+                                return;
+                        }
 
-			else if(randomOption == 1 && position < 100)
-			{
-				int storeValue = position;
-				position += randomValue;
-				if(position > 100)
-					position = storeValue;
-			}
-			else if(randomOption ==2)
-			{
-				position -= randomValue;
-				if(position < 0 )
-					position = 0;
-			}
-			countDice++;
-			System.out.println("position" + position);
-		}
-		System.out.println("Number of times dice was played to win the game " + countDice);
-	}
+//                      player 2
+                        int randomValuePlayer2 = (int)Math.floor(Math.random() * 10 ) % 6 + 1;
+                        if(flagForPlayer2 == 1) {
+                                int randomOption2 = (int)Math.floor(Math.random() * 10) % 2 +1;
+                                if(randomOption2 == 1)
+                                {
+                                        storePositionPlayer2 = positionPlayer2;
+                                        positionPlayer2 += randomValuePlayer2;
+                                        if(positionPlayer2 > 100)
+                                        {
+                                                positionPlayer2 = storePositionPlayer2;
+                                        }
+                                        System.out.println("Player2 Rolled, Die Value : "+randomValuePlayer2 +"\n Player2 get Laddar and move ahead with +"+randomValuePlayer2+"\n Current Player2 Position : "+positionPlayer2+"\n");
 
+                                }
+                                if(randomOption2 == 2)
+                                {
+                                        positionPlayer2 -= randomValuePlayer2;
+                                        if(positionPlayer2 <= 0)
+                                        {
+                                                positionPlayer2 = 0;
+                                                flagForPlayer2 = 0;
+                                                System.out.println("Player2 is KnockOut, Need Die value 1 to get inside Game\n");
+                                        }
+                                        System.out.println("Player2 Rolled, Die Value : "+randomValuePlayer2 +"\n Player2 get snake so go behind with -"+randomValuePlayer2+"\n Current Player1 Position : "+positionPlayer2+"\n");
+                                }
+                        }
+                        if(flagForPlayer2 == 0 && randomValuePlayer2 == 1) {
+                                flagForPlayer2 = 1;
+                                positionPlayer2 = 1;
+                                System.out.println("\nPlayer2 is entered into Game,and Player2 current position : "+positionPlayer2+"\n");
+                        }
+                        if(positionPlayer2 >= 100) {
+                                System.out.println("Player2 wins with "+countDice+ " Die Rolls");
+                                return;
+                        }
+                }
+
+        }
 
 }
+
+
+
+
+
+
+
